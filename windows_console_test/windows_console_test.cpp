@@ -84,7 +84,7 @@ void DrawBox(bool bSingle, SMALL_RECT rc)
 		chBox[2] = 'i'; // 左下角点
 		chBox[3] = 'j'; // 右下角点
 		chBox[4] = 'k'; // 水平
-		chBox[5] = 'l'; // 坚直
+		chBox[5] = 'l'; // 坚直  测试提交信息...
 	}
 	COORD pos = { rc.Left, rc.Top };
 	USES_CONVERSION;
