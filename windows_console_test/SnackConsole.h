@@ -30,7 +30,8 @@ namespace console_n {
 		// 获取空闲位置信息 子集容器占用的地方，并且大于 边框的字符数量 子集容器按照先上后下，先左后右的顺序绘制
 		COORD getNextStart() const;
 		void setNextStart(short x, short y);
-
+		COORD getStart() const;
+		COORD getEnd() const;
 		// 绘制
 		void draw();
 	private :

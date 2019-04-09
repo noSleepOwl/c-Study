@@ -100,6 +100,16 @@ void console_n::SnackConsole::setNextStart(short x, short y)
 	nextStart.Y = y;
 }
 
+COORD console_n::SnackConsole::getStart() const
+{
+	return start;
+}
+
+COORD console_n::SnackConsole::getEnd() const
+{
+	return end;
+}
+
 
 
 
@@ -130,7 +140,7 @@ void console_n::SnackConsole::draw()
 	}
 	else
 	{
-		setNextStart(end.X, start.Y);
+		//setNextStart(end.X, start.Y);
 		fillContent(' ', (end.X * end.Y), 0xfa);
 	}
 }

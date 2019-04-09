@@ -10,9 +10,7 @@ using std::endl;
 
 const int WIDTH = 60;
 const int HEIGHT = 30;
-// 计算主容器的尺寸
-const int MAIN_W = (WIDTH - 1) / 5 * 3;
-const int MAIN_H = HEIGHT-1;
+
 
 int main()
 {
@@ -22,11 +20,11 @@ int main()
 	SnackConsole snackConsole(WIDTH,HEIGHT);
 	snackConsole.draw();
 	// 主窗口绘制
-	SnackConsole mainContent(3, 5);
+	/*SnackConsole mainContent(3, 5);
 	mainContent.setParent(&snackConsole);
-	mainContent.draw();
-	snackConsole.setNextStart(15, 10);
+	mainContent.draw();*/
 	// 得分窗口
+	snackConsole.setNextStart(20,5);
 	SnackConsole scoreContent(2, 2);
 	scoreContent.setParent(&snackConsole);
 	scoreContent.draw();
