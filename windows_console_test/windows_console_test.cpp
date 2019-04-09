@@ -12,6 +12,7 @@ HANDLE hout;
 void cle(COORD prPos);
 // 输出
 void print(COORD prPos);
+//void print(COORD prPos,)
 // 移动
 void move(COORD *prPos, int key);
 
@@ -20,18 +21,36 @@ void move(COORD *prPos, int key);
 
 void main()
 {
-	hout = GetStdHandle(STD_OUTPUT_HANDLE);
+	
+	HANDLE hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);//获取控制台输入句柄
 
-	COORD cord = {0,1};
-	print(cord);
-	while (1)
+	int i = 0, j = 0;
+	CHAR_INFO CharInfo;
+	CharInfo.Attributes = BACKGROUND_RED;//背景色为红色
+	CharInfo.Char.UnicodeChar = '-';//空格字符 
+	CONSOLE_SCREEN_BUFFER_INFO info;
+	GetConsoleScreenBufferInfo(hConsoleOutput, &info);
+
+	short x = info.dwSize.X;
+	short y = info.dwSize.Y;
+
+	CHAR_INFO *charInfoAarray = new CHAR_INFO[x*y];
+
+	for (i = 0; i < (x*y); i++)
 	{
-		if (_kbhit()) {
-			cle(cord);
-			move(&cord, _getch());
-			print(cord);
-		}
+			charInfoAarray[i] = CharInfo;
+
 	}
+	//cout << info.dwSize.X << info.dwSize.Y << endl;
+	//COORD dwBufferSize = { 80,25 };//固定值(控制台窗口固定的属性值)
+	COORD dwBufferCoord = { 0, 0 };//缓冲区左上角的起始位置
+	SMALL_RECT rect = { 0, 0, x, y};//显示多大的缓冲区: 大小是一个矩形
+	WriteConsoleOutput(hConsoleOutput, charInfoAarray, info.dwSize, dwBufferCoord, &rect);
+	rect = {1,1,x-1,y-1};
+	WriteConsoleOutput(hConsoleOutput, charInfoAarray, info.dwSize, dwBufferCoord, &rect);
+
+	delete[] charInfoAarray; // 回收动态数组
+	getchar();
 
 }
 
@@ -49,7 +68,20 @@ void cle(COORD prPos)
 void print(COORD prPos)
 {
 	SetConsoleCursorPosition(hout, prPos);
-	cout << "hello world";
+	CHAR_INFO info;
+	info.Attributes = BACKGROUND_BLUE;
+	info.Char.AsciiChar = '-';
+	
+	CHAR_INFO infoArray[1];
+	infoArray[0] = info;
+
+	COORD dwBufferSize = { prPos.X+1,prPos.Y + 1 };//固定值(控制台窗口固定的属性值)
+	//COORD dwBufferCoord = { 0, 0 };//缓冲区左上角的起始位置
+
+	SMALL_RECT rect = { 0, 0, 79, 24 };//显示多大的缓冲区: 大小是一个矩形
+
+	WriteConsoleOutput(hout, infoArray, prPos, dwBufferSize,&rect);
+	//cout << "hello world";
 }
 
 void move(COORD * prPos, int key)
