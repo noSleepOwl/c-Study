@@ -33,6 +33,9 @@
     <ClInclude Include="SnackConsole.h">
       <Filter>module_g\console</Filter>
     </ClInclude>
+    <ClInclude Include="console_tools.h">
+      <Filter>module_g</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -46,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="SnackConsole.cpp">
       <Filter>module_g\console</Filter>
+    </ClCompile>
+    <ClCompile Include="console_tools.cpp">
+      <Filter>module_g</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

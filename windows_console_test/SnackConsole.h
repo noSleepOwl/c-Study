@@ -6,27 +6,30 @@ namespace console_n {
 	class SnackConsole
 	{
 	public:
-		// 构造器，通过构造器进行配置信息 start 左上角起始点， end 左下角结束点 
+		// 根据宽度和高度来初始化容器
 		// borderSize 边框厚度，默认的是1
-		SnackConsole(COORD start,COORD end,int borderSize = 1);
+		SnackConsole(int width,int height,int borderSize = 1);
 		~SnackConsole();
-		// 设置控制台句柄，如果没有设置将从父级中获取如果父级菜单为null 将异常
-		// 也就是说，父级容器和 handle 将必须存在一个
-		void setHandel(HANDLE handle);  
-		// 获取控制台句柄 
+
+		// 获取控制台句柄 如果存在上级容器，则取上级容器的，如果不存在则取自身的新的；
 		HANDLE getHandel() const;
-		// 判断是否有控制台句柄
-		bool haveHandel() const;
+
 		// 设置父级容器
 		void setParent(SnackConsole *parent);
+
 		// 获取父级容器
 		SnackConsole * getParent() const;
+
 		// 判断是否有父级容器
 		bool  haveParent() const;
+
+		// 获取空闲位置信息
+		SMALL_RECT getUnwanted() const; 
+
 	private :
-		// 起点
+		// 起点 如果父级为空，起点为0，0 ，否则查询父级空闲位置中+边框宽度后进行设置
 		COORD start; 
-		//终点
+		//终点 同start 
 		COORD end; 
 		// 父级容器
 		const SnackConsole *parent=NULL; 

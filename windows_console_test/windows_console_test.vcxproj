@@ -154,8 +154,10 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Snack.h" />
     <ClInclude Include="SnackConsole.h" />
+    <ClInclude Include="console_tools.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="console_tools.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
