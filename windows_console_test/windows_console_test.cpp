@@ -19,15 +19,6 @@ int main()
 	// 主界面填充
 	SnackConsole snackConsole(WIDTH,HEIGHT);
 	snackConsole.draw();
-	// 主窗口绘制
-	/*SnackConsole mainContent(3, 5);
-	mainContent.setParent(&snackConsole);
-	mainContent.draw();*/
-	// 得分窗口
-	snackConsole.setNextStart(20,5);
-	SnackConsole scoreContent(2, 2);
-	scoreContent.setParent(&snackConsole);
-	scoreContent.draw();
 
 	while (true)
 	{
