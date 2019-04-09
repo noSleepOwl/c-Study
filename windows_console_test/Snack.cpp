@@ -1,12 +1,6 @@
 #include "pch.h"
 #include "Snack.h"
 
-
-Snack::Snack()
-{
-}
-
-
-Snack::~Snack()
+snack_n::Snack::Snack(const console_n::SnackConsole & console) :console(console)
 {
 }
