@@ -8,19 +8,33 @@
 using std::cout;
 using std::endl;
 
+const int WIDTH = 60;
+const int HEIGHT = 30;
+// 计算主容器的尺寸
+const int MAIN_W = (WIDTH - 1) / 5 * 3;
+const int MAIN_H = HEIGHT-1;
 
-
-void main()
+int main()
 {
 	using console_n::SnackConsole;
-	using console_tools::getHandle;
-	HANDLE hConsoleOutput = getHandle();//获取控制台输入句柄
-	
-	COORD start;
-	COORD end;
+	HANDLE hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);//获取控制台输入句柄
+	// 主界面填充
+	SnackConsole snackConsole(WIDTH,HEIGHT);
+	snackConsole.draw();
+	// 主窗口绘制
+	SnackConsole mainContent(3, 5);
+	mainContent.setParent(&snackConsole);
+	mainContent.draw();
+	snackConsole.setNextStart(15, 10);
+	// 得分窗口
+	SnackConsole scoreContent(2, 2);
+	scoreContent.setParent(&snackConsole);
+	scoreContent.draw();
 
-	SnackConsole snackConsole(start,end);
-
+	while (true)
+	{
+		//cout << "12" << endl;
+	}
 
 	//int i = 0, j = 0;
 	//CHAR_INFO CharInfo;
@@ -49,7 +63,7 @@ void main()
 
 	//delete[] charInfoAarray; // 回收动态数组
 	//getchar();
-
+	return 0;
 }
 
 
