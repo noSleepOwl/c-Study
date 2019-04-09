@@ -37,14 +37,19 @@ void main()
 
 void cle(COORD prPos)
 {
-	SetConsoleCursorPosition(hout,prPos);
-	cout << "|||||||||||||||||||||||" << endl;
+	//SetConsoleCursorPosition(hout, prPos);
+	COORD rd = { 0,0 };
+	DWORD lp = 0;
+	CONSOLE_SCREEN_BUFFER_INFO info;
+	GetConsoleScreenBufferInfo(hout, &info);
+	// 最后一个参数现在不可以填写NULL 需要传入 DWORD 的引用(虽然参数类型是LPDWORD的...)
+	FillConsoleOutputCharacter(hout, ' ', info.dwSize.X *info.dwSize.Y, rd, &lp);
 }
 
 void print(COORD prPos)
 {
 	SetConsoleCursorPosition(hout, prPos);
-	cout << "hello world" << endl;
+	cout << "hello world";
 }
 
 void move(COORD * prPos, int key)
