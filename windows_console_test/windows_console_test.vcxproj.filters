@@ -13,10 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="module_g">
+      <UniqueIdentifier>{835d2ab6-1c9b-43e6-b493-b94c22677dd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="module_g\snack">
+      <UniqueIdentifier>{107c7fef-d37e-4398-a810-d1461861ff1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="module_g\console">
+      <UniqueIdentifier>{ffb892dc-5ecd-422e-8a54-c68956af4a4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Snack.h">
+      <Filter>module_g\snack</Filter>
+    </ClInclude>
+    <ClInclude Include="SnackConsole.h">
+      <Filter>module_g\console</Filter>
+    </ClInclude>
+    <ClInclude Include="console_tools.h">
+      <Filter>module_g</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -25,6 +43,15 @@
     </ClCompile>
     <ClCompile Include="windows_console_test.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Snack.cpp">
+      <Filter>module_g\snack</Filter>
+    </ClCompile>
+    <ClCompile Include="SnackConsole.cpp">
+      <Filter>module_g\console</Filter>
+    </ClCompile>
+    <ClCompile Include="console_tools.cpp">
+      <Filter>module_g</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
