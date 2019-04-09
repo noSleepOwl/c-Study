@@ -14,12 +14,15 @@ enum SNACK_FACE_DIRECTION
 // 蛇身体的链表，如果 next 为空则为尾巴，prev 为空则为头，其他的为身体
 // 前进的时候是x+1 还是Y+1 ，？？
 // 前进的时候判断前面一个的朝向是否和自己不一样，如果不一样的话则修改朝向同步至和前面的一样
+
 struct  SnackBody
 {
 	SNACK_FACE_DIRECTION direction;
 	SnackBody *next;
 	SnackBody *prev;
 	int index;
+	int X;  // x 位置
+	int Y; // y 位置
 };
 
 class Snack
