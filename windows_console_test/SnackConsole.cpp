@@ -80,7 +80,7 @@ void console_n::SnackConsole::draw()
 
 void console_n::SnackConsole::drawBackground()
 {
-	fillContent('*', width*height, BACKGROUND_BLUE);
+	fillContent(' ', width*height, BACKGROUND_BLUE);
 }
 
 void console_n::SnackConsole::drawMainContent()

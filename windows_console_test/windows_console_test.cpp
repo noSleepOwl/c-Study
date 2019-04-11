@@ -5,6 +5,8 @@
 #include<conio.h>
 #include"SnackConsole.h"
 #include"console_tools.h"
+#include"Snack.h"
+
 using std::cout;
 using std::endl;
 
@@ -19,9 +21,12 @@ int main()
 	// 主界面填充
 	SnackConsole snackConsole(WIDTH,HEIGHT);
 	snackConsole.draw();
-
+	
+	snack_n::Snack snack(snackConsole);
+	
 	while (true)
 	{
+
 		//cout << "12" << endl;
 	}
 
